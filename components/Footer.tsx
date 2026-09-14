@@ -33,7 +33,7 @@ export default function Footer() {
           <strong className="text-white/35">Disclaimer:</strong> FinanceConsult is a tax consultancy and financial advisory firm. Investment advice is for informational purposes only. Verify advisor credentials before acting. Past performance is not indicative of future results.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-2">
-          <p className="text-[11px] text-white/30">© 2025 FinanceConsult. All rights reserved.</p>
+          <p className="text-[11px] text-white/30">© 2026 FinanceConsult. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="#" className="text-[11px] text-white/30 hover:text-white/60 transition-colors">Privacy Policy</a>
             <a href="#" className="text-[11px] text-white/30 hover:text-white/60 transition-colors">Terms of Service</a>
