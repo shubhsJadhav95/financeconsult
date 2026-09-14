@@ -194,10 +194,6 @@ Contributions are welcome! Please follow these steps:
 
 This project is proprietary software. All rights reserved.
 
-## 📞 Support
 
-For support, contact hello@financeconsult.in
-
----
 
 **Built with ❤️ using Next.js and AWS**
