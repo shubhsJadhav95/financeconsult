@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --font-poppins: var(--font-poppins);
+  --font-sans: var(--font-poppins);
+  --blue:      #3b5bdb;
+  --blue-dk:   #2f4ac7;
+  --blue-lt:   #4c6ef5;
+  --navy:      #1a1f5e;
+  --accent:    #228be6;
+  --green:     #12b886;
+  --bg:        #ffffff;
+  --bg-soft:   #f0f4ff;
+  --bg-card:   #eef2ff;
+  --text:      #1a1f5e;
+  --muted:     #5c6bc0;
+  --border:    #e3e8ff;
+}
+
+html  { scroll-behavior: smooth; }
+body  { background:#fff; color:#1a1f5e; font-family:var(--font-poppins),sans-serif; font-weight:500; overflow-x:hidden; }
+
+/* ── Keyframes ── */
+@keyframes fadeUp       { from{opacity:0;transform:translateY(32px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn       { from{opacity:0}  to{opacity:1} }
+@keyframes slideLeft    { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+@keyframes slideRight   { from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)} }
+@keyframes float        { 0%,100%{transform:translateY(0)}  50%{transform:translateY(-10px)} }
+@keyframes floatR       { 0%,100%{transform:translateY(0) rotate(2deg)} 50%{transform:translateY(-8px) rotate(-1deg)} }
+@keyframes countUp      { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes shimmer      { from{background-position:-200% 0} to{background-position:200% 0} }
+@keyframes marquee      { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@keyframes marqueeRev   { from{transform:translateX(-50%)} to{transform:translateX(0)} }
+@keyframes blob         { 0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%} 50%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%} }
+@keyframes ping-slow    { 0%{transform:scale(1);opacity:.8} 100%{transform:scale(1.6);opacity:0} }
+@keyframes gradient-x   { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes spin-slow    { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes slide-down   { from{height:0;opacity:0} to{height:var(--radix-accordion-content-height);opacity:1} }
+@keyframes slide-up     { from{height:var(--radix-accordion-content-height);opacity:1} to{height:0;opacity:0} }
+@keyframes number-tick  { 0%{transform:translateY(0)} 100%{transform:translateY(-100%)} }
+@keyframes reveal-right { from{clip-path:inset(0 100% 0 0)} to{clip-path:inset(0 0% 0 0)} }
+
+/* ── Utility ── */
+.animate-fadeUp     { animation:fadeUp .65s ease forwards; }
+.animate-float      { animation:float 3.5s ease-in-out infinite; }
+.animate-floatR     { animation:floatR 4s ease-in-out infinite; }
+.animate-blob       { animation:blob 9s ease-in-out infinite; }
+.animate-marquee    { animation:marquee 30s linear infinite; }
+.animate-marqueeRev { animation:marqueeRev 30s linear infinite; }
+.animate-gradient   { background-size:200% 200%; animation:gradient-x 5s ease infinite; }
+.animate-spin-slow  { animation:spin-slow 14s linear infinite; }
+.animate-ping-slow  { animation:ping-slow 2.5s cubic-bezier(0,0,.2,1) infinite; }
+.animate-reveal     { animation:reveal-right .8s cubic-bezier(.4,0,.2,1) forwards; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg,#3b5bdb 0%,#228be6 60%,#12b886 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* ── Shimmer skeleton ── */
+.shimmer {
+  background: linear-gradient(90deg,#f0f4ff 25%,#e3e8ff 50%,#f0f4ff 75%);
+  background-size:200% 100%;
+  animation:shimmer 1.8s infinite;
+}
+
+/* ── Card shadow ── */
+.card-shadow  { box-shadow:0 2px 8px rgba(59,91,219,.06), 0 1px 2px rgba(59,91,219,.03); }
+.card-shadow-lg { box-shadow:0 4px 12px rgba(59,91,219,.08), 0 2px 4px rgba(59,91,219,.04); }
+
+/* ── Radix accordion ── */
+[data-state=open]  .accordion-content { animation:slide-down .28s ease; }
+[data-state=closed].accordion-content { animation:slide-up   .28s ease; }
+
+/* ── Horizontal scroll snap ── */
+.scroll-snap-x { scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+.snap-start     { scroll-snap-align:start; }
+
+/* ── Noise texture overlay ── */
+.noise::after {
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  border-radius:inherit;
+}
+
+/* ── Hide scrollbar but keep scroll ── */
+.no-scrollbar::-webkit-scrollbar { display:none; }
+.no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
